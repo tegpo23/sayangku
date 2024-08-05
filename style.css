@@ -1,44 +1,30 @@
-h1,
-p {
-    font-family: 'Hind', sans-serif;
-    text-indent: 50px;
-}
-
 body {
+    font-family: 'Hind', sans-serif;
     font-weight: 200;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
 }
 
 .container {
     position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.message {
+    width: 80%;
     padding: 20px;
-    background-color: #eee;
-    min-width: 400px;
-    height: 50%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    overflow: hidden;
-    animation-name: openmsg;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
+    background-color: #fff;
+    border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    border-radius: 5px;
+    overflow: hidden;
 }
 
 .heart {
     position: absolute;
     left: 50%;
     top: 50%;
-    text-align: center;
     transform: translate(-50%, -50%);
+    text-align: center;
     transition: transform 2s;
     z-index: 1;
 }
@@ -48,107 +34,51 @@ body {
     height: auto;
 }
 
-.heart > img:hover {
-    animation-duration: 2.5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-play-state: running;
+.message {
+    position: relative;
+    z-index: 2;
 }
 
-@keyframes beat {
-    0% {
-        width: 50px;
-    }
-    25% {
-        width: 58px;
-    }
-    30% {
-        width: 50px;
-    }
-    50% {
-        width: 45px;
-    }
-    60% {
-        width: 50px;
-    }
-    75% {
-        width: 58px;
-    }
-    100% {
-        width: 50px;
+.animated-text {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
 }
 
-@keyframes openmsg {
-    0% {
-        height: 0;
-        padding: 0 20px;
-    }
-    100% {
-        height: 75%;
-        padding: 20px 20px;
-    }
+.message p:nth-child(1) {
+    --delay: 1s;
 }
 
-@keyframes heartMove {
-    0% {
-        top: 50%;
-    }
-    100% {
-        top: 85%;
-        transform: translate(-50%, 0);
-    }
+.message p:nth-child(2) {
+    --delay: 2s;
 }
 
-.openNor {
-    animation-direction: normal;
-    animation-play-state: running;
+.message p:nth-child(3) {
+    --delay: 3s;
 }
 
-.closeNor {
-    animation-direction: reverse;
-    animation-play-state: running;
+.message p:nth-child(4) {
+    --delay: 4s;
 }
 
-.no-anim {
-    animation: none;
+.message p:nth-child(5) {
+    --delay: 5s;
 }
 
-.closed {
-    height: 0;
-    padding: 0 20px;
+.message p:nth-child(6) {
+    --delay: 6s;
 }
 
-.bottom {
-    bottom: 5px;
+.message p:nth-child(7) {
+    --delay: 7s;
 }
 
-.openHer {
-    animation-name: heartMove;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-play-state: running;
-    animation-fill-mode: forwards;
-}
-
-.closeHer {
-    animation-name: heartMove;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-play-state: running;
-    animation-direction: reverse;
-    animation-fill-mode: forwards;
-}
-
-.beating > img {
-    animation-name: beat;
-    animation-duration: 2.5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-play-state: running;
-}
-
-.openedHer {
-    top: 85%;
-    transform: translate(-50%, 0);
+.message p:nth-child(8) {
+    --delay: 8s;
 }
